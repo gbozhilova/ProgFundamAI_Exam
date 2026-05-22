@@ -17,12 +17,34 @@ const translations = {
         prospectResponseRate: "Prospect Response Rate",
         chartPeople: "people",
         chartMonths: "Months",
-        descTitle: "Leader Predictor",
         descText: "Calculate exact prospects & leads needed to hit your revenue goals. Adjust your conversion rates to forecast requirements and optimize your sales funnel.",
         descQuestionsTitle: "Sample Questions:",
         descQ1: "How many prospects do I need for my revenue goal?",
         descQ2: "If I improve my lead response rate, how does it affect prospect goals?",
-        descQ3: "What happens when average order value drops?"
+        descQ3: "What happens when average order value drops?",
+        surveyMainTitle: "📋 Use one of the four ways to survey customer preferences",
+        surveySubtitle: "Timing suggestion: Select the right moment in the customer journey",
+        coreQuestion: "Core Question:",
+        scaleUsed: "Scale Used:",
+        bestTiming: "Best Timing:",
+        scoringLogic: "Scoring Logic:",
+        csatTitle: "Customer Satisfaction (CSAT)",
+        csatQ: "\"How satisfied were you with your recent experience/purchase?\"",
+        csatScale: "1 to 5 stars, or a 1–5 scale ranging from 'Very Dissatisfied' to 'Very Satisfied.'",
+        csatTiming: "Triggered immediately after a specific interaction, like a customer support ticket resolution or a product delivery.",
+        npsTitle: "Net Promoter Score (NPS)",
+        npsQ: "\"How likely are you to recommend our company/product to a friend or colleague?\"",
+        npsScale: "0 to 10 points.",
+        npsScore: "Respondents are categorized into Detractors (0–6), Passives (7–8), and Promoters (9–10).",
+        npsTiming: "Sent quarterly or bi-annually to measure overall brand loyalty rather than a single interaction.",
+        cesTitle: "Customer Effort Score (CES)",
+        cesQ: "\"To what extent do you agree with the statement: The company made it easy for me to handle my issue?\"",
+        cesScale: "1 to 7 scale, from 'Strongly Disagree' to 'Strongly Agree.'",
+        cesTiming: "Sent immediately after self-service actions, website checkouts, or onboarding steps to find friction points.",
+        pmfTitle: "Product-Market Fit (PMF) / Sean Ellis Survey",
+        pmfQ: "\"How would you feel if you could no longer use this product?\"",
+        pmfScale: "Three choices: 'Very Disappointed', 'Somewhat Disappointed', or 'Not Disappointed.'",
+        pmfTiming: "Handed out to early adopters who have used the product at least a few times to gauge demand."
     },
     bg: {
         title: "LeadPredictor",
@@ -39,12 +61,34 @@ const translations = {
         prospectResponseRate: "Честота отговор (Потенциални)",
         chartPeople: "хора",
         chartMonths: "Месеци",
-        descTitle: "Leader Predictor",
         descText: "Изчислете точните потенциални клиенти и лийдове, нужни за вашите цели. Променяйте процентите, за да прогнозирате нуждите и оптимизирате фунията си.",
         descQuestionsTitle: "Примерни въпроси:",
         descQ1: "Колко потенциални клиенти ми трябват за целта за приходите?",
         descQ2: "Ако подобря честотата на отговори, как се отразява на целите?",
-        descQ3: "Какво се случва, когато средната стойност на поръчката намалее?"
+        descQ3: "Какво се случва, когато средната стойност на поръчката намалее?",
+        surveyMainTitle: "📋 Използвайте един от четирите начина за анкетиране на клиентите",
+        surveySubtitle: "Предложение за време: Изберете подходящия момент в клиентското преживяване",
+        coreQuestion: "Основен въпрос:",
+        scaleUsed: "Използвана скала:",
+        bestTiming: "Най-добро време:",
+        scoringLogic: "Логика на точкуване:",
+        csatTitle: "Удовлетвореност на клиента (CSAT)",
+        csatQ: "\"Колко бяхте удовлетворени от скорошния си опит/покупка?\"",
+        csatScale: "От 1 до 5 звезди или скала 1–5 от 'Много неудовлетворен' до 'Много удовлетворен'.",
+        csatTiming: "Изпраща се веднага след взаимодействие, напр. след чат с поддръжка или доставка.",
+        npsTitle: "Нетен резултат на промоутърите (NPS)",
+        npsQ: "\"Колко вероятно е да препоръчате нашата компания/продукт на приятел или колега?\"",
+        npsScale: "От 0 до 10 точки.",
+        npsScore: "Анкетираните се разделят на Критици (0–6), Пасивни (7–8) и Промоутъри (9–10).",
+        npsTiming: "Изпраща се на тримесечие или полугодие, за да измери общата лоялност към марката.",
+        cesTitle: "Оценка на клиентското усилие (CES)",
+        cesQ: "\"До каква степен сте съгласни: Компанията ме улесни в решаването на проблема ми?\"",
+        cesScale: "Скала от 1 до 7, от 'Силно несъгласен' до 'Силно съгласен'.",
+        cesTiming: "Изпраща се веднага след действия за самообслужване или завършване на поръчка.",
+        pmfTitle: "Product-Market Fit (PMF) / Анкета на Sean Ellis",
+        pmfQ: "\"Как бихте се почувствали, ако вече не можехте да използвате този продукт?\"",
+        pmfScale: "Три избора: 'Много разочарован', 'Донякъде разочарован' или 'Въобще не съм разочарован'.",
+        pmfTiming: "Дава се на ранни потребители, използвали продукта поне няколко пъти."
     }
 };
 
@@ -228,4 +272,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     applyTranslations(window.currentLanguage);
     updateMetrics();
+
+    // Tab Logic for Surveys
+    const surveyTabs = document.querySelectorAll('.survey-tab');
+    const surveyContents = document.querySelectorAll('.survey-content');
+
+    surveyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes
+            surveyTabs.forEach(t => t.classList.remove('active'));
+            surveyContents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const targetId = `survey-${tab.getAttribute('data-target')}`;
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
 });

@@ -53,13 +53,14 @@ body {
 /* Sidebar */
 .sidebar {
     width: 280px;
-    background-color: var(--panel-bg);
+    background-color: var(--sidebar-bg); /* Richer boho sand color */
     padding: 24px;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
+    box-shadow: inset 0 0 40px rgba(74, 64, 54, 0.03), var(--shadow);
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border: 1px solid var(--border-color);
 }
 
 .logo {
@@ -67,6 +68,12 @@ body {
     align-items: center;
     gap: 12px;
     margin-bottom: 10px;
+}
+
+.app-logo {
+    width: 32px;
+    height: auto;
+    object-fit: contain;
 }
 
 .logo h1 {
@@ -144,6 +151,8 @@ body {
 }
 
 .chart-panel {
+    position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,7 +160,7 @@ body {
 }
 
 .chart-info {
-    background-color: var(--sidebar-bg);
+    background-color: var(--panel-bg);
     padding: 16px;
     border-radius: var(--radius-md);
     font-size: 0.9rem;
@@ -266,32 +275,43 @@ body {
 .boho-slider {
     -webkit-appearance: none;
     width: 100%;
-    height: 8px;
-    border-radius: 4px;
-    background: var(--bg-color);
+    height: 10px;
+    border-radius: 5px;
+    background: #EAE3DB; /* Custom boho beige for slider track */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
     outline: none;
 }
 
 .boho-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 3px solid var(--accent-sage);
+    background: var(--accent-terracotta);
+    border: 3px solid #fff;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: transform 0.15s ease;
+}
+
+.boho-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
 }
 
 .boho-slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 3px solid var(--accent-sage);
+    background: var(--accent-terracotta);
+    border: 3px solid #fff;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: transform 0.15s ease;
+}
+
+.boho-slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
 }
 /* Responsive Design */
 @media (max-width: 900px) {
@@ -321,3 +341,93 @@ body {
     }
 }
 
+
+/* Survey Section */
+.survey-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.survey-title {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.survey-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #EAE3DB;
+    padding-bottom: 8px;
+}
+
+.survey-tab {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.survey-tab:hover {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.survey-tab.active {
+    background-color: var(--accent-sage);
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.survey-content {
+    display: none;
+    background-color: #FAFAF8;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.survey-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.survey-content h4 {
+    color: var(--accent-terracotta);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.survey-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.survey-content strong {
+    color: var(--text-main);
+}
+
+
+.survey-subtitle {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 12px;
+    margin-top: -4px;
+}

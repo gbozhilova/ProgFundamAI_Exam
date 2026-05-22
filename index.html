@@ -15,14 +15,11 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V6.58579C21 6.85101 20.8946 7.10536 20.7071 7.29289L14 14V20.5C14 20.886 13.5935 21.134 13.2435 20.9575L10.2435 19.4575C10.0933 19.3824 10 19.2278 10 19V14L3.29289 7.29289C3.10536 7.10536 3 6.85101 3 6.58579V4Z" fill="var(--accent-terracotta)"/>
-                </svg>
+                <img src="Logo.png" alt="Lead Predictor Logo" class="app-logo">
                 <h1 data-i18n="title">LeadPredictor</h1>
             </div>
 
             <div class="chart-info">
-                <h3 data-i18n="descTitle">Leader Predictor</h3>
                 <p data-i18n="descText">Calculate exact prospects & leads needed to hit your revenue goals. Adjust your conversion rates to forecast requirements and optimize your sales funnel.</p>
                 <strong data-i18n="descQuestionsTitle">Sample Questions:</strong>
                 <ul>
@@ -35,8 +32,8 @@
             <div class="input-group">
                 <label data-i18n="language">Language</label>
                 <select class="boho-input" id="language-select">
-                    <option value="en">🇺🇸 English</option>
-                    <option value="bg">🇧🇬 Български</option>
+                    <option value="en">English</option>
+                    <option value="bg">Български</option>
                 </select>
             </div>
 
@@ -136,6 +133,48 @@
                         <span id="prospect-rate-val">20.00%</span>
                     </div>
                     <input type="range" id="prospect-rate" min="0" max="100" step="0.5" value="20" class="boho-slider">
+                </div>
+            </div>
+
+            <!-- Survey Section -->
+            <div class="survey-panel panel">
+                <h3 class="survey-title" data-i18n="surveyMainTitle">📋 Use one of the four ways to survey customer preferences</h3>
+                <h4 class="survey-subtitle" data-i18n="surveySubtitle">Timing suggestion: Select the right moment in the customer journey</h4>
+                
+                <div class="survey-tabs">
+                    <button class="survey-tab active" data-target="csat">CSAT</button>
+                    <button class="survey-tab" data-target="nps">NPS</button>
+                    <button class="survey-tab" data-target="ces">CES</button>
+                    <button class="survey-tab" data-target="pmf">PMF</button>
+                </div>
+
+                <div class="survey-content active" id="survey-csat">
+                    <h4 data-i18n="csatTitle">Customer Satisfaction (CSAT)</h4>
+                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="csatQ">"How satisfied were you with your recent experience/purchase?"</span></p>
+                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="csatScale">1 to 5 stars, or a 1–5 scale ranging from "Very Dissatisfied" to "Very Satisfied."</span></p>
+                    <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="csatTiming">Triggered immediately after a specific interaction, like a customer support ticket resolution or a product delivery.</span></p>
+                </div>
+
+                <div class="survey-content" id="survey-nps">
+                    <h4 data-i18n="npsTitle">Net Promoter Score (NPS)</h4>
+                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="npsQ">"How likely are you to recommend our company/product to a friend or colleague?"</span></p>
+                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="npsScale">0 to 10 points.</span></p>
+                    <p><strong data-i18n="scoringLogic">Scoring Logic:</strong> <span data-i18n="npsScore">Respondents are categorized into Detractors (0–6), Passives (7–8), and Promoters (9–10).</span></p>
+                    <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="npsTiming">Sent quarterly or bi-annually to measure overall brand loyalty rather than a single interaction.</span></p>
+                </div>
+
+                <div class="survey-content" id="survey-ces">
+                    <h4 data-i18n="cesTitle">Customer Effort Score (CES)</h4>
+                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="cesQ">"To what extent do you agree with the statement: The company made it easy for me to handle my issue?"</span></p>
+                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="cesScale">1 to 7 scale, from "Strongly Disagree" to "Strongly Agree."</span></p>
+                    <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="cesTiming">Sent immediately after self-service actions, website checkouts, or onboarding steps to find friction points.</span></p>
+                </div>
+
+                <div class="survey-content" id="survey-pmf">
+                    <h4 data-i18n="pmfTitle">Product-Market Fit (PMF) / Sean Ellis Survey</h4>
+                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="pmfQ">"How would you feel if you could no longer use this product?"</span></p>
+                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="pmfScale">Three choices: "Very Disappointed", "Somewhat Disappointed", or "Not Disappointed."</span></p>
+                    <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="pmfTiming">Handed out to early adopters who have used the product at least a few times to gauge demand.</span></p>
                 </div>
             </div>
         </main>

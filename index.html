@@ -18,37 +18,39 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V6.58579C21 6.85101 20.8946 7.10536 20.7071 7.29289L14 14V20.5C14 20.886 13.5935 21.134 13.2435 20.9575L10.2435 19.4575C10.0933 19.3824 10 19.2278 10 19V14L3.29289 7.29289C3.10536 7.10536 3 6.85101 3 6.58579V4Z" fill="var(--accent-terracotta)"/>
                 </svg>
-                <h1>LeadPredictor</h1>
+                <h1 data-i18n="title">LeadPredictor</h1>
             </div>
 
             <div class="input-group">
-                <label>Language</label>
-                <select class="boho-input">
-                    <option>🇺🇸 English</option>
-                    <option>🇪🇸 Spanish</option>
+                <label data-i18n="language">Language</label>
+                <select class="boho-input" id="language-select">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="bg">🇧🇬 Български</option>
+                    <option value="es">🇪🇸 Spanish</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label>Currency</label>
+                <label data-i18n="currency">Currency</label>
                 <select class="boho-input">
                     <option>$ US Dollar</option>
                     <option>€ Euro</option>
+                    <option>лв. BGN</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label>Campaign Start</label>
+                <label data-i18n="campaignStart">Campaign Start</label>
                 <input type="date" value="2026-05-08" class="boho-input">
             </div>
 
             <div class="input-group">
-                <label>Campaign End</label>
+                <label data-i18n="campaignEnd">Campaign End</label>
                 <input type="date" value="2026-11-04" class="boho-input">
             </div>
 
             <div class="input-group">
-                <label>Total Revenue</label>
+                <label data-i18n="totalRevenue">Total Revenue</label>
                 <div class="input-prefix">
                     <span class="prefix">$</span>
                     <input type="number" id="total-revenue" value="10000" class="boho-input">
@@ -56,7 +58,7 @@
             </div>
 
             <div class="input-group">
-                <label>Avg. Order Value</label>
+                <label data-i18n="avgOrderValue">Avg. Order Value</label>
                 <div class="input-prefix">
                     <span class="prefix">$</span>
                     <input type="number" id="avg-order-value" value="1000" class="boho-input">
@@ -76,7 +78,7 @@
                 <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-header">
-                            <span class="stat-title">📁 Prospects</span>
+                            <span class="stat-title" data-i18n="prospects">📁 Prospects</span>
                             <span class="stat-percent" id="prospects-percent">100%</span>
                         </div>
                         <div class="stat-value" id="prospects-value">125</div>
@@ -87,7 +89,7 @@
 
                     <div class="stat-card">
                         <div class="stat-header">
-                            <span class="stat-title">👤 Leads</span>
+                            <span class="stat-title" data-i18n="leads">👤 Leads</span>
                             <span class="stat-percent" id="leads-percent">20%</span>
                         </div>
                         <div class="stat-value" id="leads-value">25</div>
@@ -98,7 +100,7 @@
 
                     <div class="stat-card">
                         <div class="stat-header">
-                            <span class="stat-title">🏆 Customers</span>
+                            <span class="stat-title" data-i18n="customers">🏆 Customers</span>
                             <span class="stat-percent" id="customers-percent">8%</span>
                         </div>
                         <div class="stat-value" id="customers-value">10</div>
@@ -112,7 +114,7 @@
             <div class="bottom-section panel">
                 <div class="slider-group">
                     <div class="slider-header">
-                        <label>Lead Response Rate</label>
+                        <label data-i18n="leadResponseRate">Lead Response Rate</label>
                         <span id="lead-rate-val">40.00%</span>
                     </div>
                     <input type="range" id="lead-rate" min="0" max="100" step="0.5" value="40" class="boho-slider">
@@ -120,7 +122,7 @@
 
                 <div class="slider-group">
                     <div class="slider-header">
-                        <label>Prospect Response Rate</label>
+                        <label data-i18n="prospectResponseRate">Prospect Response Rate</label>
                         <span id="prospect-rate-val">20.00%</span>
                     </div>
                     <input type="range" id="prospect-rate" min="0" max="100" step="0.5" value="20" class="boho-slider">

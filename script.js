@@ -1,5 +1,44 @@
+// Global Variables for Language State
+window.currentLanguage = 'en';
+
+const translations = {
+    en: {
+        title: "LeadPredictor",
+        language: "Language",
+        currency: "Currency",
+        campaignStart: "Campaign Start",
+        campaignEnd: "Campaign End",
+        totalRevenue: "Total Revenue",
+        avgOrderValue: "Avg. Order Value",
+        prospects: "📁 Prospects",
+        leads: "👤 Leads",
+        customers: "🏆 Customers",
+        leadResponseRate: "Lead Response Rate",
+        prospectResponseRate: "Prospect Response Rate",
+        chartPeople: "people",
+        chartMonths: "Months"
+    },
+    bg: {
+        title: "LeadPredictor",
+        language: "Език",
+        currency: "Валута",
+        campaignStart: "Начало",
+        campaignEnd: "Край",
+        totalRevenue: "Приходи",
+        avgOrderValue: "Ср. стойност на поръчка",
+        prospects: "📁 Потенциални (Prospects)",
+        leads: "👤 Лийдове",
+        customers: "🏆 Клиенти",
+        leadResponseRate: "Честота отговор (Лийдове)",
+        prospectResponseRate: "Честота отговор (Потенциални)",
+        chartPeople: "хора",
+        chartMonths: "Месеци"
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Inputs
+    const languageSelect = document.getElementById('language-select');
     const totalRevenueInput = document.getElementById('total-revenue');
     const avgOrderValueInput = document.getElementById('avg-order-value');
     const leadRateSlider = document.getElementById('lead-rate');
@@ -29,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             labels: ['1', '2', '3', '4', '5', '6'], // Months
             datasets: [
                 {
-                    label: 'Prospects',
+                    label: translations[window.currentLanguage].prospects,
                     backgroundColor: '#C9725D', // Terracotta
                     data: [0,0,0,0,0,0],
                     borderWidth: 0,
@@ -38,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     order: 3 // Draw first (background)
                 },
                 {
-                    label: 'Leads',
+                    label: translations[window.currentLanguage].leads,
                     backgroundColor: '#809681', // Sage
                     data: [0,0,0,0,0,0],
                     borderWidth: 0,
@@ -47,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     order: 2
                 },
                 {
-                    label: 'Customers',
+                    label: translations[window.currentLanguage].customers,
                     backgroundColor: '#DBA955', // Mustard
                     data: [0,0,0,0,0,0],
                     borderWidth: 0,
@@ -64,12 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
             grouped: false, // Core feature to make overlapping bars!
             scales: {
                 x: {
-                    title: { display: true, text: 'people', color: '#8E8378' },
+                    title: { display: true, text: translations[window.currentLanguage].chartPeople, color: '#8E8378' },
                     grid: { color: '#EAE3DB' },
                     ticks: { color: '#8E8378' }
                 },
                 y: {
-                    title: { display: true, text: 'Months', color: '#8E8378' },
+                    title: { display: true, text: translations[window.currentLanguage].chartMonths, color: '#8E8378' },
                     grid: { display: false },
                     ticks: { color: '#8E8378' }
                 }
@@ -143,12 +182,38 @@ document.addEventListener('DOMContentLoaded', () => {
         funnelChart.update();
     }
 
+    // Translation Applier
+    function applyTranslations(lang) {
+        window.currentLanguage = lang;
+        const dict = translations[lang];
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                el.innerText = dict[key];
+            }
+        });
+
+        // Update Chart labels
+        funnelChart.options.scales.x.title.text = dict.chartPeople;
+        funnelChart.options.scales.y.title.text = dict.chartMonths;
+        funnelChart.data.datasets[0].label = dict.prospects;
+        funnelChart.data.datasets[1].label = dict.leads;
+        funnelChart.data.datasets[2].label = dict.customers;
+        funnelChart.update();
+    }
+
     // Event Listeners
+    languageSelect.addEventListener('change', (e) => {
+        applyTranslations(e.target.value);
+    });
+
     totalRevenueInput.addEventListener('input', updateMetrics);
     avgOrderValueInput.addEventListener('input', updateMetrics);
     leadRateSlider.addEventListener('input', updateMetrics);
     prospectRateSlider.addEventListener('input', updateMetrics);
 
     // Initial load
+    applyTranslations(window.currentLanguage);
     updateMetrics();
 });

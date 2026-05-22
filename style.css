@@ -341,3 +341,93 @@ body {
     }
 }
 
+
+/* Survey Section */
+.survey-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.survey-title {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.survey-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #EAE3DB;
+    padding-bottom: 8px;
+}
+
+.survey-tab {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.survey-tab:hover {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.survey-tab.active {
+    background-color: var(--accent-sage);
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.survey-content {
+    display: none;
+    background-color: #FAFAF8;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.survey-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.survey-content h4 {
+    color: var(--accent-terracotta);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.survey-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.survey-content strong {
+    color: var(--text-main);
+}
+
+
+.survey-subtitle {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 12px;
+    margin-top: -4px;
+}

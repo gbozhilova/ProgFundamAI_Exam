@@ -150,6 +150,38 @@ body {
     min-height: 300px;
 }
 
+.chart-info {
+    background-color: var(--sidebar-bg);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.chart-info h3 {
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.chart-info p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.chart-info strong {
+    color: var(--text-main);
+}
+
+.chart-info ul {
+    margin-left: 20px;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 /* Stats Container */
 .stats-container {
     display: flex;

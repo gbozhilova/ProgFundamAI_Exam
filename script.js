@@ -16,7 +16,13 @@ const translations = {
         leadResponseRate: "Lead Response Rate",
         prospectResponseRate: "Prospect Response Rate",
         chartPeople: "people",
-        chartMonths: "Months"
+        chartMonths: "Months",
+        descTitle: "Leader Predictor",
+        descText: "Calculate exact prospects & leads needed to hit your revenue goals. Adjust your conversion rates to forecast requirements and optimize your sales funnel.",
+        descQuestionsTitle: "Sample Questions:",
+        descQ1: "How many prospects do I need for my revenue goal?",
+        descQ2: "If I improve my lead response rate, how does it affect prospect goals?",
+        descQ3: "What happens when average order value drops?"
     },
     bg: {
         title: "LeadPredictor",
@@ -32,7 +38,13 @@ const translations = {
         leadResponseRate: "Честота отговор (Лийдове)",
         prospectResponseRate: "Честота отговор (Потенциални)",
         chartPeople: "хора",
-        chartMonths: "Месеци"
+        chartMonths: "Месеци",
+        descTitle: "Leader Predictor",
+        descText: "Изчислете точните потенциални клиенти и лийдове, нужни за вашите цели. Променяйте процентите, за да прогнозирате нуждите и оптимизирате фунията си.",
+        descQuestionsTitle: "Примерни въпроси:",
+        descQ1: "Колко потенциални клиенти ми трябват за целта за приходите?",
+        descQ2: "Ако подобря честотата на отговори, как се отразява на целите?",
+        descQ3: "Какво се случва, когато средната стойност на поръчката намалее?"
     }
 };
 

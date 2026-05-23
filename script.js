@@ -17,11 +17,16 @@ const translations = {
         prospectResponseRate: "Prospect Response Rate",
         chartPeople: "people",
         chartMonths: "Months",
-        descText: "Calculate exact prospects & leads needed to hit your revenue goals. Adjust your conversion rates to forecast requirements and optimize your sales funnel.",
+        descText: "Forecast your sales funnel to hit your desired revenue. Adjust one of the parameters below to see how it impacts your revenue.",
         descQuestionsTitle: "Sample Questions:",
         descQ1: "How many prospects do I need for my revenue goal?",
         descQ2: "If I improve my lead response rate, how does it affect prospect goals?",
         descQ3: "What happens when average order value drops?",
+        defTitle: "Key Terms & Impact:",
+        defProspect: "<strong>Prospect:</strong> Fits your audience but hasn't engaged yet.",
+        defLead: "<strong>Lead:</strong> Showed interest and provided contact info.",
+        defCustomer: "<strong>Customer:</strong> Converted and completed a purchase.",
+        defImpact: "<strong>Growth:</strong> Campaigns drive prospects into the funnel, whilst surveys uncover needs to boost conversion rates and maximize profit.",
         surveyMainTitle: "📋 Use one of the four ways to survey customer preferences",
         surveySubtitle: "Timing suggestion: Select the right moment in the customer journey",
         coreQuestion: "Core Question:",
@@ -61,11 +66,16 @@ const translations = {
         prospectResponseRate: "Честота отговор (Потенциални)",
         chartPeople: "хора",
         chartMonths: "Месеци",
-        descText: "Изчислете точните потенциални клиенти и лийдове, нужни за вашите цели. Променяйте процентите, за да прогнозирате нуждите и оптимизирате фунията си.",
+        descText: "Прогнозирайте фунията си на продажби, за да постигнете желания приход. Променете един от параметрите по-долу, за да видите как би се отразило на приходите ви.",
         descQuestionsTitle: "Примерни въпроси:",
         descQ1: "Колко потенциални клиенти ми трябват за целта за приходите?",
         descQ2: "Ако подобря честотата на отговори, как се отразява на целите?",
         descQ3: "Какво се случва, когато средната стойност на поръчката намалее?",
+        defTitle: "Ключови термини и въздействие:",
+        defProspect: "<strong>Потенциален:</strong> Отговаря на аудиторията ви, но още не е ангажиран.",
+        defLead: "<strong>Лийд:</strong> Проявил интерес и предоставил контакт.",
+        defCustomer: "<strong>Клиент:</strong> Конвертирал и завършил покупка.",
+        defImpact: "<strong>Растеж:</strong> Кампаниите водят потенциални клиенти във фунията, докато анкетите разкриват нуждите за повишаване на процента на конверсия и максимизиране на печалбата.",
         surveyMainTitle: "📋 Използвайте един от четирите начина за анкетиране на клиентите",
         surveySubtitle: "Предложение за време: Изберете подходящия момент в клиентското преживяване",
         coreQuestion: "Основен въпрос:",
@@ -246,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
-                el.innerText = dict[key];
+                el.innerHTML = dict[key];
             }
         });
 

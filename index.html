@@ -14,9 +14,17 @@
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
-                <img src="Logo.png" alt="Lead Predictor Logo" class="app-logo">
-                <h1 data-i18n="title">LeadPredictor</h1>
+            <div class="logo" style="flex-wrap: wrap; justify-content: center;">
+                <div style="display: flex; align-items: center; gap: 8px; width: 100%; justify-content: center;">
+                    <img src="Logo.png" alt="Lead Predictor Logo" class="app-logo">
+                    <h1 data-i18n="title">LeadPredictor</h1>
+                </div>
+                <div class="lang-switch-wrapper" style="width: 100%; display: flex; justify-content: center; margin-top: 5px;">
+                    <select class="boho-input" id="language-select" style="width: auto; padding: 2px 20px; font-size: 0.8rem; cursor: pointer; text-align: center;">
+                        <option value="en">EN</option>
+                        <option value="bg">BG</option>
+                    </select>
+                </div>
             </div>
 
             <div class="chart-info">
@@ -27,14 +35,6 @@
                     <li data-i18n="descQ2">If I improve my lead response rate, how does it affect prospect goals?</li>
                     <li data-i18n="descQ3">What happens when average order value drops?</li>
                 </ul>
-            </div>
-
-            <div class="input-group">
-                <label data-i18n="language">Language</label>
-                <select class="boho-input" id="language-select">
-                    <option value="en">English</option>
-                    <option value="bg">Български</option>
-                </select>
             </div>
 
             <div class="input-group">
@@ -150,30 +150,56 @@
 
                 <div class="survey-content active" id="survey-csat">
                     <h4 data-i18n="csatTitle">Customer Satisfaction (CSAT)</h4>
-                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="csatQ">"How satisfied were you with your recent experience/purchase?"</span></p>
-                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="csatScale">1 to 5 stars, or a 1–5 scale ranging from "Very Dissatisfied" to "Very Satisfied."</span></p>
+                    <div class="survey-mockup">
+                        <p class="mockup-question" data-i18n="csatQ">"How satisfied were you with your recent experience/purchase?"</p>
+                        <div class="mockup-scale csat-scale">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                    </div>
                     <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="csatTiming">Triggered immediately after a specific interaction, like a customer support ticket resolution or a product delivery.</span></p>
                 </div>
 
                 <div class="survey-content" id="survey-nps">
                     <h4 data-i18n="npsTitle">Net Promoter Score (NPS)</h4>
-                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="npsQ">"How likely are you to recommend our company/product to a friend or colleague?"</span></p>
-                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="npsScale">0 to 10 points.</span></p>
+                    <div class="survey-mockup">
+                        <p class="mockup-question" data-i18n="npsQ">"How likely are you to recommend our company/product to a friend or colleague?"</p>
+                        <div class="mockup-scale nps-scale">
+                            <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                        </div>
+                        <div class="mockup-labels">
+                            <span>Not at all likely</span>
+                            <span>Extremely likely</span>
+                        </div>
+                    </div>
                     <p><strong data-i18n="scoringLogic">Scoring Logic:</strong> <span data-i18n="npsScore">Respondents are categorized into Detractors (0–6), Passives (7–8), and Promoters (9–10).</span></p>
                     <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="npsTiming">Sent quarterly or bi-annually to measure overall brand loyalty rather than a single interaction.</span></p>
                 </div>
 
                 <div class="survey-content" id="survey-ces">
                     <h4 data-i18n="cesTitle">Customer Effort Score (CES)</h4>
-                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="cesQ">"To what extent do you agree with the statement: The company made it easy for me to handle my issue?"</span></p>
-                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="cesScale">1 to 7 scale, from "Strongly Disagree" to "Strongly Agree."</span></p>
+                    <div class="survey-mockup">
+                        <p class="mockup-question" data-i18n="cesQ">"To what extent do you agree with the statement: The company made it easy for me to handle my issue?"</p>
+                        <div class="mockup-scale ces-scale">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                        </div>
+                        <div class="mockup-labels" style="max-width: 250px;">
+                            <span>Strongly Disagree</span>
+                            <span>Strongly Agree</span>
+                        </div>
+                    </div>
                     <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="cesTiming">Sent immediately after self-service actions, website checkouts, or onboarding steps to find friction points.</span></p>
                 </div>
 
                 <div class="survey-content" id="survey-pmf">
                     <h4 data-i18n="pmfTitle">Product-Market Fit (PMF) / Sean Ellis Survey</h4>
-                    <p><strong data-i18n="coreQuestion">Core Question:</strong> <span data-i18n="pmfQ">"How would you feel if you could no longer use this product?"</span></p>
-                    <p><strong data-i18n="scaleUsed">Scale Used:</strong> <span data-i18n="pmfScale">Three choices: "Very Disappointed", "Somewhat Disappointed", or "Not Disappointed."</span></p>
+                    <div class="survey-mockup">
+                        <p class="mockup-question" data-i18n="pmfQ">"How would you feel if you could no longer use this product?"</p>
+                        <div class="mockup-scale pmf-scale">
+                            <label><input type="radio" name="pmf"> Very Disappointed</label>
+                            <label><input type="radio" name="pmf"> Somewhat Disappointed</label>
+                            <label><input type="radio" name="pmf"> Not Disappointed</label>
+                        </div>
+                    </div>
                     <p><strong data-i18n="bestTiming">Best Timing:</strong> <span data-i18n="pmfTiming">Handed out to early adopters who have used the product at least a few times to gauge demand.</span></p>
                 </div>
             </div>
